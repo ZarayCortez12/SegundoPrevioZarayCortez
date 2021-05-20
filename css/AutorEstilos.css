@@ -1,0 +1,429 @@
+::-webkit-scrollbar {
+    display: none;
+}
+/*---Preloader---*/
+.contenedor
+{
+    display: flex;
+    min-height: 100vh;
+    background: #000;
+    z-index: 10000000;
+}
+.content{
+	width: 100%;
+	height: 100vh;
+	background: #000;
+	display: flex;
+	transition: all 1s;
+	position: fixed;
+	left: 0;
+    top: 0;
+    z-index: 10;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000000;
+}
+svg
+{
+    position: absolute;
+    width: 400px;
+    fill: none;
+}
+svg:nth-child(2)
+{
+    filter: blur(40px);
+}
+svg path
+{
+    d: path("M0,25 C150,110 150,-60 300,25");
+    stroke: #ff0092;
+    stroke-width:50;
+    stroke-linecap: round;
+    transform: translate(50px,50%);
+    animation: animate 2s ease-in-out infinite;
+}
+@keyframes animate
+{
+    0%
+    {
+        stroke: #ff0092;
+        d: path("M0,25 C150,110 150,-60 300,25");   
+    }
+    50%
+    {
+        stroke: #00ff00;
+        d: path("M0,25 C150,-50 140,110 300,25");
+    }
+}
+header{
+    width: 99.6%;
+    height: 60px;
+    position: fixed;
+    background: black;
+    border: 2px solid #fff;
+    z-index: 1000;
+    margin-top: -8px;
+    margin-left: -7px;
+}
+/*-----Menú-----*/
+.menu{
+    width: 82%;
+    padding-top: 8px;
+    margin: auto; 
+}
+.opcion{
+    color: #fff;
+    text-decoration: none;
+    font: bold 16px Verdana;
+    padding: 10px 65px 10px 45px;
+    width: 200px;
+    height: 100px;
+    
+}
+.opcion:hover{
+    color:#000;
+    background: #F34A7B;
+    border-radius: 25px;
+    box-shadow: 0 0 5px #F34A7B,
+    0 0 15px #F34A7B,
+    0 0 30px #F34A7B,
+    0 0 60px #F34A7B; 
+}
+.seleccionado{
+    background: #1235E3;
+    text-decoration: none;
+    font: bold 16px Verdana;
+    padding: 10px 50px 10px 50px;
+    width: 200px;
+    color: #000;
+    box-shadow: 0 0 5px #1235E3,
+    0 0 15px #1235E3,
+    0 0 30px #1235E3,
+    0 0 60px #1235E3; 
+    border-radius: 25px;
+}
+/*---Banner---*/
+.banner{
+    z-index: 9;
+}
+.banner:before{
+    content:'';
+    position: absolute;
+    margin-top: -60px;
+    width: 1366px;
+    height: 661px;
+    background: rgba(0,0,0,0.6);
+    top: 55px;
+    z-index: 9;
+    margin-left: -8px;
+    
+}
+.banner__img{
+    width: 1366px;
+    height: 649px;
+    object-fit: cover;
+    background-size: 100% 100%;
+    z-index: 9;
+    margin-left: -8px;
+}
+/*----Menú Desplegable---*/
+#menu-overlay
+{
+    margin-top: 18px;
+    margin-left: -160px;
+    bottom: 0;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    transform: scale(0);
+    transition: 0.5s;
+    width: 510px;
+    z-index: 100;
+}
+#menu-overlay.active
+{
+    transform: scale(1);
+}
+#menu-overlay ul
+{
+    position: relative;
+}
+#menu-overlay ul li
+{
+    position: relative;
+    list-style: none;
+    text-align: center;
+    display: block;
+}
+#menu-overlay ul li a
+{
+    position: relative;
+    text-decoration: none;
+    font-size: 3.5em;
+    padding: 0 10px;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: inline-block;
+    font-family: Arial;
+}
+#menu-overlay ul li a:before
+{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: #1235E3;
+    transform: translateY(-50%) scaleX(0);
+    transform-origin: right;
+    transition: 0.5s transform;
+}
+#menu-overlay ul li a:hover:before
+{
+    transform: translateY(-50%) scaleX(1);
+    transform-origin: left;
+    transition: 0.5s transform;
+}
+#toggleIcon
+{
+    position: fixed;
+    top: 10px;
+    margin-left: -90px;
+    width: 40px;
+    height: 40px;
+    background: #fff url(../Imagenes/open.png);
+    background-size: cover;
+    z-index: 1;
+    cursor: pointer;
+    border-radius: 25px;
+    box-shadow: 0px 0px 5px #1eff45, 
+        0px 0px 15px #1eff45, 
+        0px 0px 30px #1eff45;
+}
+#toggleIcon.active
+{
+    background: #fff url(../Imagenes/close.png);
+    background-size: cover;
+    border-radius: 25px;
+    box-shadow: 0px 0px 5px #1eff45, 
+        0px 0px 15px #1eff45, 
+        0px 0px 30px #1eff45;
+}
+/*-----Datos----*/
+.Nombres{
+    font-family: Courier New;
+    margin-top: -350px;
+    color: white;
+    position: absolute;
+    z-index: 10;
+    font-size: 50;
+    margin-left: 80px;
+    
+}
+.Apellidos{
+    font-family: Courier New;
+    position: absolute;
+    z-index: 10;
+    font-family: Courier New;
+    margin-top: -300px;
+    color: white;
+    position: absolute;
+    z-index: 10;
+    font-size: 50;
+    margin-left: 900px;
+}
+/*----Perfil----*/
+.perfil{
+    background: #000;
+    width: 1366px;
+    height: 640px;
+    margin-top: -1px;
+    margin-left: -8px
+}
+.perfilimg{
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    margin-top: 130px;
+    margin-left: 100px
+}
+.perfil p{
+    color: white;
+    position: absolute;
+    margin-top: 100px;
+    font-family: Courier New;
+    margin-left: 850px;
+    font-size: 50;
+    box-shadow: 3px 3px 3px #A94AF3;
+}
+.perfil div{
+    color: white;
+    font-family: Arial;
+    position: absolute;
+    margin-left: 550px;
+    font-size: 30px;
+    margin-top: 290px;
+    text-align: justify;
+    margin-right: 80px;
+}
+.educacion{
+    background: #000;
+    width: 1366px;
+    height: 880px;
+    margin-top: -1px;
+    margin-left: -8px;
+}
+.educacion p{
+    color: white;
+    position: absolute;
+    font-family: Courier New;
+    margin-top: -40px;
+    margin-left: 30px;
+    margin-right: 600px;
+    font-size: 45;
+    box-shadow: 3px 3px 3px #A94AF3;
+}
+.educacion div{
+    color: white;
+    font-family: Arial;
+    position: absolute;
+    margin-left: 50px;
+    font-size: 20px;
+    margin-top: 90px;
+    text-align: justify;
+    margin-right: 80px;
+}
+.educacionimg{
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    margin-top: 80px;
+    margin-right: 50px;
+}
+.educacion span{
+    color: white;
+    font-family: Arial;
+    position: absolute;
+    font-size: 15px;
+    text-align: justify;
+}
+.Habilidades{
+    background: #000;
+    width: 1366px;
+    height: 640px;
+    margin-top: -1px;
+    margin-left: -8px
+}
+.Habilidades p{
+    color: white;
+    position: absolute;
+    margin-top: 100px;
+    font-family: Courier New;
+    margin-left: 850px;
+    font-size: 50;
+    box-shadow: 3px 3px 3px #A94AF3;
+}
+.Habilidades div{
+    color: white;
+    font-family: Arial;
+    position: absolute;
+    margin-left: 700px;
+    font-size: 20px;
+    margin-top: 290px;
+    text-align: justify;
+    margin-right: 80px;
+}
+.Habilidadesimg{
+   width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    margin-top: 130px;
+    margin-left: 100px
+}
+.Intereses{
+    background: #000;
+    width: 1366px;
+    height: 430px;
+    margin-top: -1px;
+    margin-left: -8px
+}
+.Intereses p{
+    color: white;
+    position: absolute;
+    font-family: Courier New;
+    margin-top: -40px;
+    margin-left: 300px;
+    margin-right: 600px;
+    font-size: 45;
+    box-shadow: 3px 3px 3px #A94AF3;
+}
+.Intereses div{
+    color: white;
+    font-family: Arial;
+    position: absolute;
+    margin-left: 250px;
+    font-size: 20px;
+    margin-top: 90px;
+    text-align: justify;
+    margin-right: 80px;
+}
+.Interesesimg{
+   width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    margin-top: 0px;
+    margin-right: 200px
+}
+/*----Informacion sobre el autor---*/
+.documentos1{
+    background: #000;
+    width: 356.5px;
+    margin-top: -1px;
+    margin-left: -8px;
+    height: 420px;
+}
+.documentos2{
+    background: #000;
+    width: 356.5px;
+    margin-top: -420px;
+    margin-left: 347px;
+    height: 420px;
+}
+.documentos3{
+    background: #000;
+    margin-top: -420px;
+    margin-left: 704px;
+    height: 420px;
+    width: 650px;
+}
+/*----Footer-----*/
+.main-footer{
+    background: #000;
+    width: 1366px;
+    height: 356px;
+    margin-top: -16px;
+    margin-left: -8px
+}
+.column__title{
+    color: white;
+    position: absolute;
+    font-family: Courier New;
+    margin-top: 10px;
+    margin-left: 385px;
+    margin-right: 00px;
+    font-size: 45;
+    box-shadow: 3px 3px 3px #A94AF3;
+}
+.main-footer div{
+    color: white;
+    font-family: Arial;
+    font-size: 18;
+    text-decoration: none;
+}
+.icon-twiter{
+   padding: 100px 0px 0px 0px;
+}
